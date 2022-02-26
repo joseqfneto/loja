@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Produtos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <form action="#" th:action="@{/produtos/editProduto}" th:object="${produto}" method="post">
+        <p>Id: <input type="text" th:field="*{id}" th:value="*{id}" readonly /></p>
+        <p>Nome: <input type="text" th:field="*{nome}" th:value="*{nome}" /></p>
+        <p>Quantidade: <input type="text" th:field="*{quantidade}" th:value="*{quantidade}" /></p>
+        <p>Valor: <input type="text" th:field="*{valor}" th:value="*{valor}" /></p>
+        <p><input type="submit" value="Salvar" /></p>
+    </form>
+
+    <table>
+        <thead>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>Quantidade</td>
+            <td>Preço</td>
+            <td>Opções</td>
+        </thead>
+        <tbody>
+            <tr th:each="produto : ${produtos}">
+                <td th:text="${produto.id}"></td>
+                <td th:text="${produto.nome}"></td>
+                <td th:text="${produto.quantidade}"></td>
+                <td th:text="${produto.valor}"></td>
+                <td>
+                    <a th:href="@{/produtos/edit?id=}+${produto.id}">
+                        <input type="button" value="e" />
+                    </a>
+                    <a th:href="@{/produtos/removeProduto?id=}+${produto.id}">
+                        <input type="button" value="x" />
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

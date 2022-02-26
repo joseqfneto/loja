@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Perfis</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<style type="text/css">
+	.permissaoCheck {
+		display: table;
+		margin-top: 15px;
+	}
+</style>
+
+<body>
+	<a href="/perfil/edit">Novo</a>
+	<form action="#" th:action="@{/perfil/save}" th:object="${perfil}" method="post">
+		<p>Id: <input type="text" th:field="*{id}" th:value="*{id}" readonly /></p>
+		<p>Nome: <input type="text" th:field="*{nome}" th:value="*{nome}" required /></p>
+		<p>Permissões:
+			<input th:field="*{permissoes}" type="checkbox" th:each="permissao: ${permissoes}"
+				th:text="${permissao.nome}" th:value="${permissao.id}" class="permissaoCheck" />
+		</p>
+		<p><input type="submit" value="Salvar" /></p>
+	</form>
+
+	<table border="1">
+		<thead>
+			<td>Id</td>
+			<td>Nome</td>
+			<td>Opções</td>
+		</thead>
+		<tbody>
+			<tr th:each="perfil: ${perfis}">
+				<td th:text="${perfil.id}"></td>
+				<td th:text="${perfil.nome}"></td>
+				<td>
+					<a th:href="@{/perfil/edit?id=}+${perfil.id}">
+						<input type="button" value="e" />
+					</a>
+					<a th:href="@{/perfil/removePerfil?id=}+${perfil.id}">
+						<input type="button" value="x" />
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="/permissao/edit">Editar Permissões</a>
+</body>
+
+</html>
