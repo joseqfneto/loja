@@ -36,7 +36,7 @@ public class UsuarioDetailsService implements UserDetailsService {
 		Usuario usuario = usuarioRepository.findByUsername(username);
 
 		if (usuario == null) {
-			throw new UsernameNotFoundException("Usuário " + username + " não encontrado.");
+			throw new UsernameNotFoundException("");
 		}
 
 		List<GrantedAuthority> roles = new ArrayList<GrantedAuthority>();
