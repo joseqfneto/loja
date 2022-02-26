@@ -33,6 +33,5 @@ build/
 .vscode/
 
 #Banco H2
-h2
-/h2
 h2/
+h2/db_test.mv.db
