@@ -45,7 +45,6 @@ public class UsuarioDetailsService implements UserDetailsService {
 			roles.add(new SimpleGrantedAuthority(permissao.getNome()));
 		}
 
-		roles.add(new SimpleGrantedAuthority("Admin"));
 		return (UserDetails) new User(usuario.getUsername(), usuario.getPassword(), roles);
 	}
 

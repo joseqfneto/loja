@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.loja.entity.Perfil;
 import com.example.loja.repository.PerfilRepository;
-import com.example.loja.repository.PermissaoRepository;
 
 @Service
 public class PerfilService {

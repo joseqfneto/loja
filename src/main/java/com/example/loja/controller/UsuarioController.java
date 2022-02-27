@@ -6,6 +6,7 @@ import com.example.loja.repository.UsuarioRepository;
 import com.example.loja.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,9 +26,10 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @RequestMapping("/edit")
+    @Secured("usuario_edit")
     public String edit(@RequestParam(value = "id", defaultValue = "0") Long id, Model model) {
         Usuario usuario = usuarioService.findById(id);
-        //usuario.setPassword("");// apenas para não mostrar o cript
+        // usuario.setPassword("");// apenas para não mostrar o cript
         model.addAttribute("usuario", usuario);
         model.addAttribute("perfis", perfilRepository.findAll());
         model.addAttribute("usuarios", usuarioRepository.findAll());
@@ -35,12 +37,14 @@ public class UsuarioController {
     }
 
     @RequestMapping("/save")
+    @Secured("usuario_edit")
     public String save(Usuario usuario) {
         usuarioService.save(usuario);
         return "redirect:/usuario/edit";
     }
 
     @RequestMapping("/remove")
+    @Secured("usuario_delete")
     public String remove(Usuario usuario) {
         usuarioRepository.deleteById(usuario.getId());
         return "redirect:/usuario/edit";

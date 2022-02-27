@@ -32,12 +32,14 @@ public class ProdutoController {
 	}
 
 	@RequestMapping("/save")
+	@Secured("produto_edit")
 	public String save(Produto produto) {
 		produtoService.save(produto);
 		return "redirect:/produto/edit";
 	}
 
 	@RequestMapping("/remove")
+	@Secured("produto_delete")
 	public String remove(@RequestParam(name = "id") Long id) {
 		produtoService.deleteById(id);
 		return "redirect:/produto/edit";
