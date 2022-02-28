@@ -28,7 +28,7 @@ public class CategoriaController {
         model.addAttribute("categoria", categoriaService.findById(id));
         model.addAttribute("categorias", categoriaRepository.findAll());
 
-        return "/categoria/edit";
+        return "categoria/edit";
     }
     
     @RequestMapping("/save")

@@ -33,7 +33,7 @@ public class UsuarioController {
         model.addAttribute("usuario", usuario);
         model.addAttribute("perfis", perfilRepository.findAll());
         model.addAttribute("usuarios", usuarioRepository.findAll());
-        return "/usuario/edit";
+        return "usuario/edit";
     }
 
     @RequestMapping("/save")

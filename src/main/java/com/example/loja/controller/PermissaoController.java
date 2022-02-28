@@ -26,7 +26,7 @@ public class PermissaoController {
 	public String edit(@RequestParam(value = "id", defaultValue = "0") Long id, Model model) {
 		model.addAttribute("permissao", permissaoService.findById(id));
 		model.addAttribute("permissoes", permissaoRepository.findAll());
-		return "/permissao/edit";
+		return "permissao/edit";
 	}
 
 	@RequestMapping("/save")

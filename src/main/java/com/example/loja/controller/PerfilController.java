@@ -31,7 +31,7 @@ public class PerfilController {
 		model.addAttribute("perfil", perfilService.findById(id));
 		model.addAttribute("permissoes", permissaoRepository.findAll());
 		model.addAttribute("perfis", perfilRepository.findAll());
-		return "/perfil/edit";
+		return "perfil/edit";
 	}
 
 	@Secured("perfil_edit")
