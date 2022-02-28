@@ -4,44 +4,35 @@
 <head th:replace="base :: head('Produtos')"></head>
 
 <body>
-	<nav th:replace="base :: menu_nav"></nav>
 	<div class="container">
+		<nav th:replace="base :: menu_nav"></nav>
 		<h2>Produtos</h2>
 		<form class="container" action="#" th:action="@{/produto/save}" th:object="${produto}" method="post">
-			<div class="row mb-2">
+			<div class="row ">
 				<label for="id">Id</label>
-				<div class="col sm">
-					<input type="text" th:field="*{id}" th:value="*{id}" readonly />
-				</div>
+
+				<input type="text" th:field="*{id}" th:value="*{id}" readonly />
+
 			</div>
 			<div class="row mb-2">
 				<label for="id">Nome</label>
-				<div class="col sm">
-					<input type="text" th:field="*{nome}" th:value="*{nome}" required />
-				</div>
+				<input type="text" th:field="*{nome}" th:value="*{nome}" required />
 			</div>
 			<div class="row mb-2">
 				<label for="id">Quantidade</label>
-				<div class="col sm">
-					<input type="text" th:field="*{quantidade}" th:value="*{quantidade}" required />
-				</div>
+				<input type="text" th:field="*{quantidade}" th:value="*{quantidade}" required />
 			</div>
 			<div class="row mb-2">
 				<label for="id">Valor</label>
-				<div class="col sm">
-					<input type="text" th:field="*{valor}" th:value="*{valor}" required />
-				</div>
+				<input type="text" th:field="*{valor}" th:value="*{valor}" required />
 			</div>
 			<div class="row mb-2">
 				<label for="id">Categoria</label>
-				<div class="col sm">
-					<select th:field="*{categoria}" required>
-						<option value="">Selecione</option>
-						<option th:each="categoria : ${categorias}" th:text="${categoria.nome}"
-							th:value="${categoria.id}">
-						</option>
-					</select>
-				</div>
+				<select th:field="*{categoria}" required>
+					<option value="">Selecione</option>
+					<option th:each="categoria : ${categorias}" th:text="${categoria.nome}" th:value="${categoria.id}">
+					</option>
+				</select>
 			</div>
 			<input type="submit" value="Salvar" />
 		</form>
