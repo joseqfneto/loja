@@ -28,7 +28,7 @@ public class ProdutoController {
 		model.addAttribute("produto", produto);
 		model.addAttribute("produtos", produtoService.findAll());
 		model.addAttribute("categorias", categoriaService.findAll());
-		return "/produto/edit";
+		return "produto/edit";
 	}
 
 	@RequestMapping("/save")
