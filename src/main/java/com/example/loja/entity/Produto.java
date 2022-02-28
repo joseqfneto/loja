@@ -1,5 +1,7 @@
 package com.example.loja.entity;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,11 +22,11 @@ public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	private String nome;
 	private int quantidade;
-	private float valor;
-	
+	private BigDecimal valor;
+
 	@OneToOne(fetch = FetchType.EAGER)
 	private Categoria categoria;
 
