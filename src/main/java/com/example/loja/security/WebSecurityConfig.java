@@ -1,4 +1,4 @@
-package com.example.securingweb;
+package com.example.loja.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -17,18 +17,28 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UsuarioDetailsService usuarioDetailsService;
 
-	/* Bean que está declarado na classe main */
-	@Autowired
-	private PasswordEncoder passwordEncoder;
-
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/h2-console/**").permitAll();
+		http
+				.authorizeRequests()
+				// .antMatchers("/", "/home").permitAll()
+				.anyRequest().authenticated()
+				.and()
+				.formLogin()
+				.loginPage("/login")
+				.permitAll()
+				.and()
+				.logout()
+				.logoutSuccessUrl("/login?logout")
+				.permitAll()
+				.and()
+				.exceptionHandling()
+				.accessDeniedPage("/acessoNegado");
 	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(usuarioDetailsService).passwordEncoder(passwordEncoder);
+		auth.userDetailsService(usuarioDetailsService);
 	}
 
 }

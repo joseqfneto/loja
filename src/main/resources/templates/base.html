@@ -44,11 +44,13 @@
                         th:classappend="${#httpServletRequest.getRequestURI().startsWith('/usuario') ? 'active' : ''}">Usuários</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/logout">Sair</a>
+
                 </li>
             </ul>
             <div>
-                <span th:text="@{Bem vindo,}+' '+${#request.userPrincipal.principal.username}"></span>
+                <form action="#" th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sair" class="btn btn-link link-dark">
+                </form>
             </div>
         </div>
     </div>

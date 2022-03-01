@@ -30,11 +30,18 @@ public class CategoriaController {
 
         return "categoria/edit";
     }
-    
+
     @RequestMapping("/save")
     @Secured("categoria_edit")
     public String save(Categoria categoria) {
         categoriaRepository.save(categoria);
+        return "redirect:/categoria/edit";
+    }
+
+    @RequestMapping("/remove")
+    @Secured("categoria_delete")
+    public String remove(@RequestParam(value = "id") Long id) {
+        categoriaRepository.deleteById(id);
         return "redirect:/categoria/edit";
     }
 }

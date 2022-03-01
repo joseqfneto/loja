@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="base :: head(${title})">
+
+</head>
+
+<body>
+    <br>
+    <div class="container">
+        <div th:text="${msg}" class="alert alert-danger" role="alert"></div>
+        <a href="/">Retornar</a>
+    </div>
+</body>
+
+</html>
