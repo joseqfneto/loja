@@ -6,8 +6,7 @@
 	<div class="container">
 		<nav th:replace="base :: menu_nav"></nav>
 		<h2>Usuários</h2>
-		<form class="container" action="#" th:action="@{/usuario/save}" th:object="${usuario}" method="post"
-			autocomplete="off">
+		<form class="container" action="#" th:action="@{/usuario/save}" th:object="${usuario}" method="post">
 			<div class="mb-3">
 				<label for="id" class="form-label">Id</label>
 				<input type="text" th:field="*{id}" class="form-control" readonly />
@@ -71,13 +70,16 @@
 </body>
 <script th:replace="base :: init_js"></script>
 <script type="text/javascript">
-	$('#btnSalvar').click(function () {
+	var f = function () {
 		var textPassword = $("#txtPassword").val();
 		if (textPassword != "") {
 			$("#password").val(textPassword);
 		}
 		$("#btnSubmit").click();
-	});
+	};
+
+	$('form').submit(f);
+	$('#btnSalvar').click(f);
 </script>
 
 </html>
