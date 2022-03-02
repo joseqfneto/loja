@@ -6,7 +6,8 @@
 	<div class="container">
 		<nav th:replace="base :: menu_nav"></nav>
 		<h2>Usuários</h2>
-		<form class="container" action="#" th:action="@{/usuario/save}" th:object="${usuario}" method="post">
+		<form class="container" action="#" th:action="@{/usuario/save}" th:object="${usuario}" method="post"
+			autocomplete="off">
 			<div class="mb-3">
 				<label for="id" class="form-label">Id</label>
 				<input type="text" th:field="*{id}" class="form-control" readonly />
@@ -28,6 +29,7 @@
 				<input type="text" th:field="*{password}" hidden />
 			</div>
 			<div class="float-end">
+				<a href="/usuario/edit" class="btn btn-danger" role="button">Cancelar</a>
 				<button type="button" id="btnSalvar" class="btn btn-primary">Salvar</button>
 				<input type="submit" id="btnSubmit" value="" hidden />
 			</div><br>
