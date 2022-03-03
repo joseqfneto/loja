@@ -30,5 +30,6 @@ Projeto de estudo para desenvolver o aprendizado em Java usando Spring Boot
 
 ## Link da aplicação
 https://loja-dev.herokuapp.com/
+
 Login: loja
 Senha: loja
