@@ -21,12 +21,12 @@ public class UsuarioService {
 	}
 
 	/* Metodo para gravar o password no banco codificado */
-	public void save(Usuario usuario) throws RuntimeException {
+	public void save(Usuario usuario) {
 		if (!usuarioRepository.existsByUsername(usuario.getUsername())) {
 			usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
 			usuarioRepository.save(usuario);
 		} else {
-			throw new RuntimeException("Um usuário com este nome já existe!");
+			throw new IllegalArgumentException("Um usuário com este nome já existe!");
 		}
 
 	}
