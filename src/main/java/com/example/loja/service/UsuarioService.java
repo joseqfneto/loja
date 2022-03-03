@@ -28,6 +28,5 @@ public class UsuarioService {
 		} else {
 			throw new IllegalArgumentException("Um usuário com este nome já existe!");
 		}
-
 	}
 }
