@@ -1,5 +1,5 @@
 # Projeto Spring Boot
-Projeto de estudo para desenvolver o aprendizado em Java usando Spring Boot
+Projeto em Java usando Spring Boot
 
 ## Recursos utilizados
 - Linguagem de programação Java (Backend)
