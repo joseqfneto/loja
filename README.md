@@ -2,10 +2,11 @@
 Projeto em Java usando Spring Boot
 
 ## Recursos utilizados
-- Linguagem de programação Java (Backend)
+- Linguagem de programação Java
 - Framework Spring Boot
 - Banco de dados Postgresql
-- JPA para leitura, escrita e remoção no banco de dados
+- Spring Data (JPA) para leitura, escrita e remoção no banco de dados
+- Spring Security (Login e acessos por perfil)
 - Thymeleaf (Engine para integração do Java com o HTML)
 - Framework HTML Bootstrap (Frontend)
 
@@ -17,6 +18,7 @@ Projeto em Java usando Spring Boot
 - Implementação de segurança (Login e Rotas)
 - Segurança de rotas por perfil
 - Tratamento de erro com páginas customizadas
+- Interfaces de usuário
 
 ## Funcionalidades
 - Sistema de segurança (Login / Acessos específicos)
